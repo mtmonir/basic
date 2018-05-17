@@ -39,11 +39,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 // Set static folder
 app.use(express.static('public')); 
 //app.use(express.static(path.join(_dirname, 'public')));
-
+require('./config/passport')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('./config/passport')(passport);
+
 
 // routes
 app.use('/rc1', rc1);
